@@ -11,3 +11,4 @@ install:
     - vagrant -v
 script:
     - flake8 .
+    - vagrant up prod
