@@ -4,10 +4,7 @@ python:
     - "3.5"
 install:
     - sudo apt-get update -q
-    - sudo apt-get install -q virtualbox --fix-missing
-    - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb
-    - sudo dpkg -i vagrant_2.2.3_x86_64.deb
-    - bundle install
+    - sudo apt-get install -q virtualbox vagrant --fix-missing
     - pip install flake8
     - pip install Flask-WTF
     - pip install coveralls
