@@ -12,6 +12,7 @@ install:
     - pip install coveralls
     - vagrant -v
     - virtualbox --version
+    - some update
 script:
     - flake8 .
     - vagrant up prod
