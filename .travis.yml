@@ -3,9 +3,9 @@ python:
     - "2.7"
     - "3.5"
 install:
-	- sudo apt-get update -q
+    - sudo apt-get update -q
     - sudo apt-get install -q -y virtualbox --fix-missing
-    - sudo wget -nv https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb
+    - sudo wget -nv "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
     - sudo dpkg -i vagrant_1.7.2_x86_64.deb
     - pip install flake8
     - pip install Flask-WTF
