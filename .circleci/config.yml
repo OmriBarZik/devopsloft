@@ -10,6 +10,17 @@ jobs:
           sudo sh -c "echo \"deb http://download.virtualbox.org/virtualbox/debian xenial contrib\" >> /etc/apt/sources.list"
           wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
           sudo apt-get update -q
+          sudo apt-get install gcc g++ bcc iasl xsltproc uuid-dev zlib1g-dev libidl-dev \
+                libsdl1.2-dev libxcursor-dev libasound2-dev libstdc++5 \
+                libhal-dev libpulse-dev libxml2-dev libxslt1-dev \
+                python-dev libqt4-dev qt4-dev-tools libcap-dev \
+                libxmu-dev mesa-common-dev libglu1-mesa-dev \
+                linux-kernel-headers libcurl4-openssl-dev libpam0g-dev \
+                libxrandr-dev libxinerama-dev libqt4-opengl-dev makeself \
+                libdevmapper-dev default-jdk python-central \
+                texlive-latex-base \
+                texlive-latex-extra texlive-latex-recommended \
+                texlive-fonts-extra texlive-fonts-recommended
           sudo apt-get install -f -q build-essential virtualbox-5.1 dkms --fix-missing
           wget "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
           sudo dpkg -i vagrant_2.2.3_x86_64.deb
