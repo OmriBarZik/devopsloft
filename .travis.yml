@@ -4,7 +4,7 @@ python:
     - "3.5"
 install:
     - sudo apt-get update -q
-    - sudo apt-get install -q -y virtualbox --fix-missing
+    - sudo apt-get install -q -y virtualbox  virtualbox-dkms --fix-missing
     - sudo dpkg-reconfigure virtualbox-dkms
     - sudo dpkg-reconfigure virtualbox
     - sudo modprobe vboxdrv
