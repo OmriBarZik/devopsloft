@@ -1,3 +1,18 @@
+version: 2
+
+jobs:
+  test:
+    docker:
+      - image: circleci/python:3.7
+    steps:
+      - checkout
+      - run: <command>
+workflows:
+  version: 2
+  test:
+    jobs:
+      - test
+
 machine:
   timezone:
     Asia/Tokyo
@@ -6,8 +21,8 @@ dependencies:
     - vagrant
     - ~/.vagrant.d
   pre:
-    - wget https://dl.bintray.com/mitchellh/vagrant/vagrant_1.6.5_x86_64.deb
-    - sudo dpkg -i vagrant_1.6.5_x86_64.deb
+    - wget "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
+    - sudo dpkg -i vagrant_2.2.3_x86_64.deb
     - vagrant plugin install vagrant-aws
 test:
   pre:
