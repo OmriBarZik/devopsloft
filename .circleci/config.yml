@@ -8,6 +8,7 @@ jobs:
       - checkout
       - run: |
           sudo sh -c "echo \"deb http://download.virtualbox.org/virtualbox/debian xenial contrib\" >> /etc/apt/sources.list"
+          wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
           sudo apt-get update -q
           sudo apt-get install -q linux-headers-$(uname -r) build-essential virtualbox-5.1 dkms --fix-missing
           wget "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
