@@ -4,28 +4,17 @@ jobs:
   test:
     docker:
       - image: circleci/python:3.7
+
     steps:
       - checkout
-      - run: <command>
+      - run: |
+        wget "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
+        sudo dpkg -i vagrant_2.2.3_x86_64.deb
+        vagrant plugin install vagrant-aws 
+      - run: vagrant up prod
+      - run: vagrant destroy prod --force
 workflows:
   version: 2
   test:
     jobs:
       - test
-
-machine:
-  timezone:
-    Asia/Tokyo
-dependencies:
-  cache_directories:
-    - vagrant
-    - ~/.vagrant.d
-  pre:
-    - wget "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
-    - sudo dpkg -i vagrant_2.2.3_x86_64.deb
-    - vagrant plugin install vagrant-aws
-test:
-  pre:
-    - vagrant up prod
-  post:
-      - vagrant destroy prod --force
