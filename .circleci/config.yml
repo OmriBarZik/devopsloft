@@ -4,14 +4,16 @@ jobs:
   test:
     docker:
       - image: circleci/python:3.7
-
     steps:
       - checkout
       - run: |
+          sudo apt-get update -q
+          sudo apt-get install -q virtualbox --fix-missing
           wget "https://releases.hashicorp.com/vagrant/2.2.3/vagrant_2.2.3_x86_64.deb"
           sudo dpkg -i vagrant_2.2.3_x86_64.deb
       - run: vagrant up prod
       - run: vagrant destroy prod --force
+
 workflows:
   version: 2
   test:
