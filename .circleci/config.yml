@@ -9,6 +9,7 @@ jobs:
       - run: |
           sudo sh -c "echo \"deb http://download.virtualbox.org/virtualbox/debian xenial contrib\" >> /etc/apt/sources.list"
           wget -q https://www.virtualbox.org/download/oracle_vbox_2016.asc -O- | sudo apt-key add -
+          sudo add-apt-repository universe
           sudo apt-get update -q
           sudo apt-get install ia32-libs libc6-dev-i386 lib32gcc1 gcc-multilib \
                 lib32stdc++6 g++-multilib
